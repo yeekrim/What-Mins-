@@ -35,14 +35,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4016F0AF2A28568000593AFE /* TimeSpeaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeSpeaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4016F0AF2A28568000593AFE /* What Mins?.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "What Mins?.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4016F0B22A28568000593AFE /* TimeSpeakerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSpeakerApp.swift; sourceTree = "<group>"; };
 		4016F0B42A28568000593AFE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4016F0B62A28568100593AFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4016F0B92A28568100593AFE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		4016F0BF2A28568100593AFE /* TimeSpeakerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeSpeakerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4016F0BF2A28568100593AFE /* What Mins?Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "What Mins?Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4016F0C32A28568100593AFE /* TimeSpeakerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSpeakerTests.swift; sourceTree = "<group>"; };
-		4016F0C92A28568100593AFE /* TimeSpeakerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeSpeakerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4016F0C92A28568100593AFE /* What Mins?UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "What Mins?UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4016F0CD2A28568100593AFE /* TimeSpeakerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSpeakerUITests.swift; sourceTree = "<group>"; };
 		4016F0CF2A28568100593AFE /* TimeSpeakerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSpeakerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4016F0DC2A28581600593AFE /* SpeechSynthesizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechSynthesizer.swift; sourceTree = "<group>"; };
@@ -86,9 +86,9 @@
 		4016F0B02A28568000593AFE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4016F0AF2A28568000593AFE /* TimeSpeaker.app */,
-				4016F0BF2A28568100593AFE /* TimeSpeakerTests.xctest */,
-				4016F0C92A28568100593AFE /* TimeSpeakerUITests.xctest */,
+				4016F0AF2A28568000593AFE /* What Mins?.app */,
+				4016F0BF2A28568100593AFE /* What Mins?Tests.xctest */,
+				4016F0C92A28568100593AFE /* What Mins?UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -133,9 +133,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4016F0AE2A28568000593AFE /* TimeSpeaker */ = {
+		4016F0AE2A28568000593AFE /* What Mins? */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4016F0D32A28568100593AFE /* Build configuration list for PBXNativeTarget "TimeSpeaker" */;
+			buildConfigurationList = 4016F0D32A28568100593AFE /* Build configuration list for PBXNativeTarget "What Mins?" */;
 			buildPhases = (
 				4016F0AB2A28568000593AFE /* Sources */,
 				4016F0AC2A28568000593AFE /* Frameworks */,
@@ -145,14 +145,14 @@
 			);
 			dependencies = (
 			);
-			name = TimeSpeaker;
+			name = "What Mins?";
 			productName = TimeSpeaker;
-			productReference = 4016F0AF2A28568000593AFE /* TimeSpeaker.app */;
+			productReference = 4016F0AF2A28568000593AFE /* What Mins?.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4016F0BE2A28568100593AFE /* TimeSpeakerTests */ = {
+		4016F0BE2A28568100593AFE /* What Mins?Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4016F0D62A28568100593AFE /* Build configuration list for PBXNativeTarget "TimeSpeakerTests" */;
+			buildConfigurationList = 4016F0D62A28568100593AFE /* Build configuration list for PBXNativeTarget "What Mins?Tests" */;
 			buildPhases = (
 				4016F0BB2A28568100593AFE /* Sources */,
 				4016F0BC2A28568100593AFE /* Frameworks */,
@@ -163,14 +163,14 @@
 			dependencies = (
 				4016F0C12A28568100593AFE /* PBXTargetDependency */,
 			);
-			name = TimeSpeakerTests;
+			name = "What Mins?Tests";
 			productName = TimeSpeakerTests;
-			productReference = 4016F0BF2A28568100593AFE /* TimeSpeakerTests.xctest */;
+			productReference = 4016F0BF2A28568100593AFE /* What Mins?Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		4016F0C82A28568100593AFE /* TimeSpeakerUITests */ = {
+		4016F0C82A28568100593AFE /* What Mins?UITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4016F0D92A28568100593AFE /* Build configuration list for PBXNativeTarget "TimeSpeakerUITests" */;
+			buildConfigurationList = 4016F0D92A28568100593AFE /* Build configuration list for PBXNativeTarget "What Mins?UITests" */;
 			buildPhases = (
 				4016F0C52A28568100593AFE /* Sources */,
 				4016F0C62A28568100593AFE /* Frameworks */,
@@ -181,9 +181,9 @@
 			dependencies = (
 				4016F0CB2A28568100593AFE /* PBXTargetDependency */,
 			);
-			name = TimeSpeakerUITests;
+			name = "What Mins?UITests";
 			productName = TimeSpeakerUITests;
-			productReference = 4016F0C92A28568100593AFE /* TimeSpeakerUITests.xctest */;
+			productReference = 4016F0C92A28568100593AFE /* What Mins?UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -209,7 +209,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4016F0AA2A28568000593AFE /* Build configuration list for PBXProject "TimeSpeaker" */;
+			buildConfigurationList = 4016F0AA2A28568000593AFE /* Build configuration list for PBXProject "What Mins?" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -222,9 +222,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4016F0AE2A28568000593AFE /* TimeSpeaker */,
-				4016F0BE2A28568100593AFE /* TimeSpeakerTests */,
-				4016F0C82A28568100593AFE /* TimeSpeakerUITests */,
+				4016F0AE2A28568000593AFE /* What Mins? */,
+				4016F0BE2A28568100593AFE /* What Mins?Tests */,
+				4016F0C82A28568100593AFE /* What Mins?UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -288,12 +288,12 @@
 /* Begin PBXTargetDependency section */
 		4016F0C12A28568100593AFE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4016F0AE2A28568000593AFE /* TimeSpeaker */;
+			target = 4016F0AE2A28568000593AFE /* What Mins? */;
 			targetProxy = 4016F0C02A28568100593AFE /* PBXContainerItemProxy */;
 		};
 		4016F0CB2A28568100593AFE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4016F0AE2A28568000593AFE /* TimeSpeaker */;
+			target = 4016F0AE2A28568000593AFE /* What Mins? */;
 			targetProxy = 4016F0CA2A28568100593AFE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -487,7 +487,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TimeSpeaker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TimeSpeaker";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/What Mins?.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/What Mins?";
 			};
 			name = Debug;
 		};
@@ -507,7 +507,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TimeSpeaker.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TimeSpeaker";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/What Mins?.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/What Mins?";
 			};
 			name = Release;
 		};
@@ -550,7 +550,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4016F0AA2A28568000593AFE /* Build configuration list for PBXProject "TimeSpeaker" */ = {
+		4016F0AA2A28568000593AFE /* Build configuration list for PBXProject "What Mins?" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4016F0D12A28568100593AFE /* Debug */,
@@ -559,7 +559,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4016F0D32A28568100593AFE /* Build configuration list for PBXNativeTarget "TimeSpeaker" */ = {
+		4016F0D32A28568100593AFE /* Build configuration list for PBXNativeTarget "What Mins?" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4016F0D42A28568100593AFE /* Debug */,
@@ -568,7 +568,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4016F0D62A28568100593AFE /* Build configuration list for PBXNativeTarget "TimeSpeakerTests" */ = {
+		4016F0D62A28568100593AFE /* Build configuration list for PBXNativeTarget "What Mins?Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4016F0D72A28568100593AFE /* Debug */,
@@ -577,7 +577,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4016F0D92A28568100593AFE /* Build configuration list for PBXNativeTarget "TimeSpeakerUITests" */ = {
+		4016F0D92A28568100593AFE /* Build configuration list for PBXNativeTarget "What Mins?UITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4016F0DA2A28568100593AFE /* Debug */,

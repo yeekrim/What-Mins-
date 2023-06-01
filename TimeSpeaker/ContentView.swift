@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  TimeSpeaker
+//  What Mins?
 //
 //  Created by 길지훈 on 2023/06/01.
 //
