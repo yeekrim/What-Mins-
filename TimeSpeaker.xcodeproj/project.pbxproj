@@ -14,6 +14,7 @@
 		4016F0C42A28568100593AFE /* TimeSpeakerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4016F0C32A28568100593AFE /* TimeSpeakerTests.swift */; };
 		4016F0CE2A28568100593AFE /* TimeSpeakerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4016F0CD2A28568100593AFE /* TimeSpeakerUITests.swift */; };
 		4016F0D02A28568100593AFE /* TimeSpeakerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4016F0CF2A28568100593AFE /* TimeSpeakerUITestsLaunchTests.swift */; };
+		4016F0DD2A28581600593AFE /* SpeechSynthesizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4016F0DC2A28581600593AFE /* SpeechSynthesizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		4016F0C92A28568100593AFE /* TimeSpeakerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimeSpeakerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4016F0CD2A28568100593AFE /* TimeSpeakerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSpeakerUITests.swift; sourceTree = "<group>"; };
 		4016F0CF2A28568100593AFE /* TimeSpeakerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSpeakerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4016F0DC2A28581600593AFE /* SpeechSynthesizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechSynthesizer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +96,9 @@
 		4016F0B12A28568000593AFE /* TimeSpeaker */ = {
 			isa = PBXGroup;
 			children = (
-				4016F0B22A28568000593AFE /* TimeSpeakerApp.swift */,
 				4016F0B42A28568000593AFE /* ContentView.swift */,
+				4016F0DC2A28581600593AFE /* SpeechSynthesizer.swift */,
+				4016F0B22A28568000593AFE /* TimeSpeakerApp.swift */,
 				4016F0B62A28568100593AFE /* Assets.xcassets */,
 				4016F0B82A28568100593AFE /* Preview Content */,
 			);
@@ -259,6 +262,7 @@
 			files = (
 				4016F0B52A28568000593AFE /* ContentView.swift in Sources */,
 				4016F0B32A28568000593AFE /* TimeSpeakerApp.swift in Sources */,
+				4016F0DD2A28581600593AFE /* SpeechSynthesizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
