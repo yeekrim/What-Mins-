@@ -76,9 +76,9 @@
 		4016F0A62A28568000593AFE = {
 			isa = PBXGroup;
 			children = (
-				4016F0B12A28568000593AFE /* TimeSpeaker */,
-				4016F0C22A28568100593AFE /* TimeSpeakerTests */,
-				4016F0CC2A28568100593AFE /* TimeSpeakerUITests */,
+				4016F0B12A28568000593AFE /* What Mins? */,
+				4016F0C22A28568100593AFE /* What Mins?Tests */,
+				4016F0CC2A28568100593AFE /* What Mins?UITests */,
 				4016F0B02A28568000593AFE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -93,7 +93,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4016F0B12A28568000593AFE /* TimeSpeaker */ = {
+		4016F0B12A28568000593AFE /* What Mins? */ = {
 			isa = PBXGroup;
 			children = (
 				4016F0B42A28568000593AFE /* ContentView.swift */,
@@ -102,7 +102,7 @@
 				4016F0B62A28568100593AFE /* Assets.xcassets */,
 				4016F0B82A28568100593AFE /* Preview Content */,
 			);
-			path = TimeSpeaker;
+			path = "What Mins?";
 			sourceTree = "<group>";
 		};
 		4016F0B82A28568100593AFE /* Preview Content */ = {
@@ -113,21 +113,21 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		4016F0C22A28568100593AFE /* TimeSpeakerTests */ = {
+		4016F0C22A28568100593AFE /* What Mins?Tests */ = {
 			isa = PBXGroup;
 			children = (
 				4016F0C32A28568100593AFE /* TimeSpeakerTests.swift */,
 			);
-			path = TimeSpeakerTests;
+			path = "What Mins?Tests";
 			sourceTree = "<group>";
 		};
-		4016F0CC2A28568100593AFE /* TimeSpeakerUITests */ = {
+		4016F0CC2A28568100593AFE /* What Mins?UITests */ = {
 			isa = PBXGroup;
 			children = (
 				4016F0CD2A28568100593AFE /* TimeSpeakerUITests.swift */,
 				4016F0CF2A28568100593AFE /* TimeSpeakerUITestsLaunchTests.swift */,
 			);
-			path = TimeSpeakerUITests;
+			path = "What Mins?UITests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
