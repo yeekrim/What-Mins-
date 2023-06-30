@@ -15,6 +15,9 @@
 		4016F0CE2A28568100593AFE /* TimeSpeakerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4016F0CD2A28568100593AFE /* TimeSpeakerUITests.swift */; };
 		4016F0D02A28568100593AFE /* TimeSpeakerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4016F0CF2A28568100593AFE /* TimeSpeakerUITestsLaunchTests.swift */; };
 		4016F0DD2A28581600593AFE /* SpeechSynthesizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4016F0DC2A28581600593AFE /* SpeechSynthesizer.swift */; };
+		F252B1662A4EBD580042755D /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F252B1652A4EBD580042755D /* SettingView.swift */; };
+		F252B1672A4EBD580042755D /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F252B1652A4EBD580042755D /* SettingView.swift */; };
+		F252B1682A4EBD580042755D /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F252B1652A4EBD580042755D /* SettingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,7 @@
 		4016F0CD2A28568100593AFE /* TimeSpeakerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSpeakerUITests.swift; sourceTree = "<group>"; };
 		4016F0CF2A28568100593AFE /* TimeSpeakerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSpeakerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4016F0DC2A28581600593AFE /* SpeechSynthesizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechSynthesizer.swift; sourceTree = "<group>"; };
+		F252B1652A4EBD580042755D /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				4016F0B42A28568000593AFE /* ContentView.swift */,
+				F252B1652A4EBD580042755D /* SettingView.swift */,
 				4016F0DC2A28581600593AFE /* SpeechSynthesizer.swift */,
 				4016F0B22A28568000593AFE /* TimeSpeakerApp.swift */,
 				4016F0B62A28568100593AFE /* Assets.xcassets */,
@@ -261,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4016F0B52A28568000593AFE /* ContentView.swift in Sources */,
+				F252B1662A4EBD580042755D /* SettingView.swift in Sources */,
 				4016F0B32A28568000593AFE /* TimeSpeakerApp.swift in Sources */,
 				4016F0DD2A28581600593AFE /* SpeechSynthesizer.swift in Sources */,
 			);
@@ -271,6 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4016F0C42A28568100593AFE /* TimeSpeakerTests.swift in Sources */,
+				F252B1672A4EBD580042755D /* SettingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F252B1682A4EBD580042755D /* SettingView.swift in Sources */,
 				4016F0CE2A28568100593AFE /* TimeSpeakerUITests.swift in Sources */,
 				4016F0D02A28568100593AFE /* TimeSpeakerUITestsLaunchTests.swift in Sources */,
 			);
@@ -420,7 +428,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"TimeSpeaker/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"What Mins?/Preview Content\"";
 				DEVELOPMENT_TEAM = 5M5VM39FM9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -449,7 +457,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"TimeSpeaker/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"What Mins?/Preview Content\"";
 				DEVELOPMENT_TEAM = 5M5VM39FM9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

@@ -12,10 +12,32 @@ struct ContentView: View {
     @State private var currentTime: String = ""
     @State private var selectedInterval: Int = 1
     @State private var isUpdatingTime = false
+    @State private var isShowingSettings = false
     let speechSynthesizer = SpeechSynthesizer()
 
     var body: some View {
+        
+        
         VStack{
+            // Setting btn
+            HStack {
+                Spacer()
+                Button(action: {
+                    isShowingSettings = true
+                }) {
+                    Image(systemName: "gearshape")
+                        .resizable()
+                        .frame(width:40, height:40)
+                }
+                .sheet(isPresented: $isShowingSettings) {
+                    SettingView()
+                }
+                .padding([.trailing], 30)
+                .padding(.top, 15)
+            }
+            
+            Spacer()
+            
             Text("⚡️Activating⚡️")
                 .font(.subheadline)
                 .bold()
@@ -28,6 +50,7 @@ struct ContentView: View {
 
             Text("Interval: \(selectedInterval) min" + (selectedInterval > 1 ? "s" : ""))
                 .padding()
+                .bold()
 
             HStack {
                     Button(action: {
@@ -55,16 +78,17 @@ struct ContentView: View {
                     }, label: {
                         Image(systemName: "plus.circle")
                     })
-
+                
                 }
-
             
-
+            Spacer()
+            Spacer()
             
         }
         .onAppear {
             updateTime()
         }
+        
     }
 
     func updateTime() {
