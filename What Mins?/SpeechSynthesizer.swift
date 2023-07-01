@@ -7,16 +7,17 @@
 
 import AVFoundation
 
-class SpeechSynthesizer {
+class SpeechSynthesizer : ObservableObject {
     private let synthesizer: AVSpeechSynthesizer
-
+    @Published var selectedLanguage: String = "ko-KR"
+        
     init() {
         self.synthesizer = AVSpeechSynthesizer()
     }
 
     func speak(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
-        utterance.voice = AVSpeechSynthesisVoice(language: "ko-KR")
+        utterance.voice = AVSpeechSynthesisVoice(language: selectedLanguage)
         utterance.rate = 0.4
 
         synthesizer.speak(utterance)
@@ -25,4 +26,8 @@ class SpeechSynthesizer {
     func stopSpeaking() {
         synthesizer.stopSpeaking(at: .immediate)
     }
+    
+    func updateSelectedLanguage(_ language: String) {
+            selectedLanguage = language
+        }
 }

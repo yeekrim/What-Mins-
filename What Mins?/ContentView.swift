@@ -12,8 +12,8 @@ struct ContentView: View {
     @State private var currentTime: String = ""
     @State private var selectedInterval: Int = 1
     @State private var isUpdatingTime = false
-    @State private var selectedLanguage: String = ""
-    let speechSynthesizer = SpeechSynthesizer()
+    @StateObject private var speechSynthesizer = SpeechSynthesizer()
+    @State private var selectedLanguage: String = "ko-KR"
 
     var body: some View {
         
@@ -25,59 +25,77 @@ struct ContentView: View {
                     Menu {
                         Section("Set your voice language") {
                             Button(action: {
-                                selectedLanguage = "Korean"
+                                speechSynthesizer.updateSelectedLanguage("ko-KR")
+                                selectedLanguage = "ko-KR"
                             }) {
-                                Label("Korean", systemImage: selectedLanguage == "Korean" ? "checkmark" : "")
+                                Label("Korean", systemImage: selectedLanguage == "ko-KR" ? "checkmark" : "")
                             }
                             
                             Button(action: {
-                                selectedLanguage = "English(US)"
+                                speechSynthesizer.updateSelectedLanguage("en-US")
+                                selectedLanguage = "en-US"
                             }) {
-                                Label("English(US)", systemImage: selectedLanguage == "English(US)" ? "checkmark" : "")
+                                Label("English(US)", systemImage: selectedLanguage == "en-US" ? "checkmark" : "")
                             }
                             
                             Button(action: {
-                                selectedLanguage = "English(UK)"
+                                speechSynthesizer.updateSelectedLanguage("en-UK")
+                                selectedLanguage = "en-UK"
                             }) {
-                                Label("English(UK)", systemImage: selectedLanguage == "English(UK)" ? "checkmark" : "")
+                                Label("English(UK)", systemImage: selectedLanguage == "en-UK" ? "checkmark" : "")
                             }
                             
                             Button(action: {
-                                selectedLanguage = "Spanish"
+                                speechSynthesizer.updateSelectedLanguage("es-ES")
+                                selectedLanguage = "es-ES"
                             }) {
-                                Label("Spanish", systemImage: selectedLanguage == "Spanish" ? "checkmark" : "")
+                                Label("Spanish", systemImage: selectedLanguage == "es-ES" ? "checkmark" : "")
                             }
                             
                             Button(action: {
-                                selectedLanguage = "Chinese"
+                                speechSynthesizer.updateSelectedLanguage("zh-CN")
+                                selectedLanguage = "zh-CN"
                             }) {
-                                Label("Chinese", systemImage: selectedLanguage == "Chinese" ? "checkmark" : "")
+                                Label("Chinese", systemImage: selectedLanguage == "zh-CN" ? "checkmark" : "")
                             }
                             
                             Button(action: {
-                                selectedLanguage = "Japanese"
+                                speechSynthesizer.updateSelectedLanguage("ja-JP")
+                                selectedLanguage = "ja-JP"
                             }) {
-                                Label("Japanese", systemImage: selectedLanguage == "Japanese" ? "checkmark" : "")
+                                Label("Japanese", systemImage: selectedLanguage == "ja-JP" ? "checkmark" : "")
                             }
                             
                             Button(action: {
-                                selectedLanguage = "German"
+                                speechSynthesizer.updateSelectedLanguage("de-DE")
+                                selectedLanguage = "de-DE"
                             }) {
-                                Label("German", systemImage: selectedLanguage == "German" ? "checkmark" : "")
+                                Label("German", systemImage: selectedLanguage == "de-DE" ? "checkmark" : "")
                             }
                             
                             Button(action: {
-                                selectedLanguage = "French"
+                                speechSynthesizer.updateSelectedLanguage("fr-FR")
+                                selectedLanguage = "fr-FR"
                             }) {
-                                Label("French", systemImage: selectedLanguage == "French" ? "checkmark" : "")
+                                Label("French", systemImage: selectedLanguage == "fr-FR" ? "checkmark" : "")
                             }
                         }
                         
                     } label: {
                         Label("Language", systemImage: "globe")
                     }
+                    .padding(7)
+                    .padding(.leading, -3.0)
+                    .padding(.vertical, -5.0)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 7)
+                            .stroke(Color.black, lineWidth: 2)
+                    )
+                    
+                    .imageScale(.large)
+                    .foregroundColor(.black)
                     .padding([.trailing], 30)
-                    .padding(.top, 15)
+                    .padding(.top, 20)
                 }
             }
             
@@ -136,6 +154,9 @@ struct ContentView: View {
                     }
             }
             
+        }
+        .onChange(of: selectedLanguage) { newValue in
+            print("Selected Language: \(newValue)")
         }
         
     }
