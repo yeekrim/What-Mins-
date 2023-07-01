@@ -15,9 +15,6 @@
 		4016F0CE2A28568100593AFE /* TimeSpeakerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4016F0CD2A28568100593AFE /* TimeSpeakerUITests.swift */; };
 		4016F0D02A28568100593AFE /* TimeSpeakerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4016F0CF2A28568100593AFE /* TimeSpeakerUITestsLaunchTests.swift */; };
 		4016F0DD2A28581600593AFE /* SpeechSynthesizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4016F0DC2A28581600593AFE /* SpeechSynthesizer.swift */; };
-		F252B1662A4EBD580042755D /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F252B1652A4EBD580042755D /* SettingView.swift */; };
-		F252B1672A4EBD580042755D /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F252B1652A4EBD580042755D /* SettingView.swift */; };
-		F252B1682A4EBD580042755D /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F252B1652A4EBD580042755D /* SettingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +46,6 @@
 		4016F0CD2A28568100593AFE /* TimeSpeakerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSpeakerUITests.swift; sourceTree = "<group>"; };
 		4016F0CF2A28568100593AFE /* TimeSpeakerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSpeakerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4016F0DC2A28581600593AFE /* SpeechSynthesizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechSynthesizer.swift; sourceTree = "<group>"; };
-		F252B1652A4EBD580042755D /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				4016F0B42A28568000593AFE /* ContentView.swift */,
-				F252B1652A4EBD580042755D /* SettingView.swift */,
 				4016F0DC2A28581600593AFE /* SpeechSynthesizer.swift */,
 				4016F0B22A28568000593AFE /* TimeSpeakerApp.swift */,
 				4016F0B62A28568100593AFE /* Assets.xcassets */,
@@ -221,6 +216,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = 4016F0A62A28568000593AFE;
 			productRefGroup = 4016F0B02A28568000593AFE /* Products */;
@@ -266,7 +262,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4016F0B52A28568000593AFE /* ContentView.swift in Sources */,
-				F252B1662A4EBD580042755D /* SettingView.swift in Sources */,
 				4016F0B32A28568000593AFE /* TimeSpeakerApp.swift in Sources */,
 				4016F0DD2A28581600593AFE /* SpeechSynthesizer.swift in Sources */,
 			);
@@ -277,7 +272,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4016F0C42A28568100593AFE /* TimeSpeakerTests.swift in Sources */,
-				F252B1672A4EBD580042755D /* SettingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +279,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F252B1682A4EBD580042755D /* SettingView.swift in Sources */,
 				4016F0CE2A28568100593AFE /* TimeSpeakerUITests.swift in Sources */,
 				4016F0D02A28568100593AFE /* TimeSpeakerUITestsLaunchTests.swift in Sources */,
 			);
@@ -311,6 +304,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -371,6 +365,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

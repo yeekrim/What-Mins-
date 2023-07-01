@@ -16,7 +16,7 @@ class SpeechSynthesizer {
 
     func speak(_ text: String) {
         let utterance = AVSpeechUtterance(string: text)
-        utterance.voice = AVSpeechSynthesisVoice(language: "en-UK")
+        utterance.voice = AVSpeechSynthesisVoice(language: "ko-KR")
         utterance.rate = 0.4
 
         synthesizer.speak(utterance)

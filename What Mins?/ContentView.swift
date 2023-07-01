@@ -12,47 +12,94 @@ struct ContentView: View {
     @State private var currentTime: String = ""
     @State private var selectedInterval: Int = 1
     @State private var isUpdatingTime = false
-    @State private var isShowingSettings = false
+    @State private var selectedLanguage: String = ""
     let speechSynthesizer = SpeechSynthesizer()
 
     var body: some View {
         
-        
         VStack{
-            // Setting btn
-            HStack {
-                Spacer()
-                Button(action: {
-                    isShowingSettings = true
-                }) {
-                    Image(systemName: "gearshape")
-                        .resizable()
-                        .frame(width:40, height:40)
+            // Language Swap
+            Group {
+                HStack {
+                    Spacer()
+                    Menu {
+                        Section("Set your voice language") {
+                            Button(action: {
+                                selectedLanguage = "Korean"
+                            }) {
+                                Label("Korean", systemImage: selectedLanguage == "Korean" ? "checkmark" : "")
+                            }
+                            
+                            Button(action: {
+                                selectedLanguage = "English(US)"
+                            }) {
+                                Label("English(US)", systemImage: selectedLanguage == "English(US)" ? "checkmark" : "")
+                            }
+                            
+                            Button(action: {
+                                selectedLanguage = "English(UK)"
+                            }) {
+                                Label("English(UK)", systemImage: selectedLanguage == "English(UK)" ? "checkmark" : "")
+                            }
+                            
+                            Button(action: {
+                                selectedLanguage = "Spanish"
+                            }) {
+                                Label("Spanish", systemImage: selectedLanguage == "Spanish" ? "checkmark" : "")
+                            }
+                            
+                            Button(action: {
+                                selectedLanguage = "Chinese"
+                            }) {
+                                Label("Chinese", systemImage: selectedLanguage == "Chinese" ? "checkmark" : "")
+                            }
+                            
+                            Button(action: {
+                                selectedLanguage = "Japanese"
+                            }) {
+                                Label("Japanese", systemImage: selectedLanguage == "Japanese" ? "checkmark" : "")
+                            }
+                            
+                            Button(action: {
+                                selectedLanguage = "German"
+                            }) {
+                                Label("German", systemImage: selectedLanguage == "German" ? "checkmark" : "")
+                            }
+                            
+                            Button(action: {
+                                selectedLanguage = "French"
+                            }) {
+                                Label("French", systemImage: selectedLanguage == "French" ? "checkmark" : "")
+                            }
+                        }
+                        
+                    } label: {
+                        Label("Language", systemImage: "globe")
+                    }
+                    .padding([.trailing], 30)
+                    .padding(.top, 15)
                 }
-                .sheet(isPresented: $isShowingSettings) {
-                    SettingView()
-                }
-                .padding([.trailing], 30)
-                .padding(.top, 15)
             }
             
             Spacer()
             
-            Text("⚡️Activating⚡️")
-                .font(.subheadline)
-                .bold()
-                .italic()
-                .opacity(isUpdatingTime ? 1.0 : 0.0)
-            
-            Text(currentTime)
-                .font(.largeTitle)
-                .padding()
-
-            Text("Interval: \(selectedInterval) min" + (selectedInterval > 1 ? "s" : ""))
-                .padding()
-                .bold()
-
-            HStack {
+            // Time & Control
+            Group {
+                Text("⚡️Activating⚡️")
+                    .font(.subheadline)
+                    .bold()
+                    .italic()
+                    .opacity(isUpdatingTime ? 1.0 : 0.0)
+                
+                Text(currentTime)
+                    .font(.largeTitle)
+                    .padding()
+                
+                Text("Interval: \(selectedInterval) min" + (selectedInterval > 1 ? "s" : ""))
+                    .padding()
+                    .bold()
+                
+                HStack {
                     Button(action: {
                         if (selectedInterval > 1) {
                             selectedInterval -= 1
@@ -66,31 +113,34 @@ struct ContentView: View {
                     }, label: {
                         Text("Start")
                     })
-                
+                    
                     Button(action: {
                         stopUpdatingTime()
                     }, label: {
                         Text("Stop")
                     })
-                
+                    
                     Button(action: {
                         selectedInterval += 1
                     }, label: {
                         Image(systemName: "plus.circle")
                     })
-                
+                    
                 }
+                
+                Spacer()
+                Spacer()
+                
+                    .onAppear {
+                        updateTime()
+                    }
+            }
             
-            Spacer()
-            Spacer()
-            
-        }
-        .onAppear {
-            updateTime()
         }
         
     }
 
+    // functions
     func updateTime() {
         let formatter = DateFormatter()
         formatter.timeStyle = .medium
