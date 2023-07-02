@@ -13,6 +13,8 @@ struct ContentView: View {
     @State private var selectedInterval: Int = 1
     @State private var isUpdatingTime = false
     @State private var isShowingSettings = false
+    @State var isSilentModeOn = false
+    
     let speechSynthesizer = SpeechSynthesizer()
 
     var body: some View {
@@ -135,7 +137,11 @@ struct ContentView: View {
             let formatter = DateFormatter()
             formatter.timeStyle = .short
             let timeString = formatter.string(from: Date())
-            speechSynthesizer.speak(timeString)
+            if isSilentModeOn == true {
+                speechSynthesizer.inSilentMode()
+            } else {
+                speechSynthesizer.speak(timeString)
+            }
         }
 }
 
