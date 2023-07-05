@@ -14,6 +14,7 @@ struct ContentView: View {
     @State private var isUpdatingTime = false
     @StateObject private var speechSynthesizer = SpeechSynthesizer()
     @State private var selectedLanguage: String = "ko-KR"
+    @State private var targetTimeWorkItem: DispatchWorkItem?
 
     var body: some View {
         
@@ -131,7 +132,6 @@ struct ContentView: View {
                         if isUpdatingTime {
                             stopUpdatingTime()
                         } else {
-                            stopUpdatingTime()
                             startUpdatingTime()
                         }
                     }) {
@@ -208,10 +208,9 @@ struct ContentView: View {
                             })
                         }
                     }
+                    .opacity(isUpdatingTime ? 0.0 : 1.0)
                 }
 
-
-                
                 Spacer()
                 Spacer()
                 
@@ -227,7 +226,7 @@ struct ContentView: View {
         
     }
 
-    // functions
+    // 현재시각 표시
     func updateTime() {
         let formatter = DateFormatter()
         formatter.timeStyle = .medium
@@ -238,35 +237,54 @@ struct ContentView: View {
         }
     }
 
+    // Start Btn -> 지정 인터벌에 따른 음성 생성 및 재생
     func startUpdatingTime() {
         stopUpdatingTime() // Stop previous updates if any
         isUpdatingTime = true
         updateTargetTime()
+        print("startUpdatingTime - targetTimeWorkItem: \(String(describing: targetTimeWorkItem))")
     }
 
+    // Stop Btn ->
     func stopUpdatingTime() {
         isUpdatingTime = false
+        targetTimeWorkItem?.cancel()
+        targetTimeWorkItem = nil
+        print("stopUpdatingTime - targetTimeWorkItem: \(String(describing: targetTimeWorkItem))")
     }
 
+    //
     func updateTargetTime() {
         let calendar = Calendar.current
         let currentComponents = calendar.dateComponents([.hour, .minute, .second], from: Date())
+
         guard let currentHour = currentComponents.hour,
-              let currentMinute = currentComponents.minute else {
+                let currentMinute = currentComponents.minute else {
             return
         }
 
-        let nextTargetMinute = (currentMinute + selectedInterval) % 60
-        let targetTime = calendar.date(bySettingHour: currentHour, minute: nextTargetMinute, second: 0, of: Date())!
-
-        let timeDiff = targetTime.timeIntervalSinceNow
-        DispatchQueue.main.asyncAfter(deadline: .now() + timeDiff) {
-            if self.isUpdatingTime {
-                self.speakCurrentTime()
-                self.updateTargetTime()
-            }
+        var nextTargetMinute = (currentMinute + selectedInterval) % 60
+        var nextTargetHour = currentHour
+        
+        if nextTargetMinute >= 60 {
+            nextTargetHour += 1
+            nextTargetMinute %= 60
         }
-    }
+        
+        if nextTargetHour >= 24 {
+            nextTargetHour %= 24
+        }
+        
+        let targetTime = calendar.date(bySettingHour: currentHour, minute: nextTargetMinute, second: 0, of: Date())!
+        let timeDiff = targetTime.timeIntervalSinceNow
+            targetTimeWorkItem = DispatchWorkItem {
+                if isUpdatingTime {
+                    speakCurrentTime()
+                    updateTargetTime()
+                }
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + timeDiff, execute: targetTimeWorkItem!)
+        }
 
     func speakCurrentTime() {
             let formatter = DateFormatter()
