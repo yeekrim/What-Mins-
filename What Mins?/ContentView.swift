@@ -21,7 +21,6 @@ struct ContentView: View {
             // Language Swap
             Group {
                 HStack {
-                    Spacer()
                     Menu {
                         Section("Set your voice language") {
                             Button(action: {
@@ -91,10 +90,8 @@ struct ContentView: View {
                         RoundedRectangle(cornerRadius: 7)
                             .stroke(Color.black, lineWidth: 2)
                     )
-                    
                     .imageScale(.large)
                     .foregroundColor(.black)
-                    .padding([.trailing], 30)
                     .padding(.top, 20)
                 }
             }
@@ -118,31 +115,47 @@ struct ContentView: View {
                     .bold()
                 
                 HStack {
+                    if !isUpdatingTime {
+                        Button(action: {
+                            if (selectedInterval > 1) {
+                                selectedInterval -= 1
+                            }
+                        }, label: {
+                            Image(systemName: "arrowtriangle.backward")
+                                .foregroundColor(.black)
+                                .font(.title2)
+                        })
+                    }
+                    
                     Button(action: {
-                        if (selectedInterval > 1) {
-                            selectedInterval -= 1
+                        if isUpdatingTime {
+                            stopUpdatingTime()
+                        } else {
+                            stopUpdatingTime()
+                            startUpdatingTime()
                         }
-                    }, label: {
-                        Image(systemName: "minus.circle")
-                    })
+                    }) {
+                        if isUpdatingTime {
+                            Text("Stop")
+                                .bold()
+                                .font(.largeTitle)
+                        } else {
+                            Text("Rush!")
+                                .bold()
+                                .font(.largeTitle)
+                        }
+                    }
+                    .foregroundColor(isUpdatingTime ? .red : .green)
                     
-                    Button(action: {
-                        startUpdatingTime()
-                    }, label: {
-                        Text("Start")
-                    })
-                    
-                    Button(action: {
-                        stopUpdatingTime()
-                    }, label: {
-                        Text("Stop")
-                    })
-                    
-                    Button(action: {
-                        selectedInterval += 1
-                    }, label: {
-                        Image(systemName: "plus.circle")
-                    })
+                    if !isUpdatingTime {
+                        Button(action: {
+                            selectedInterval += 1
+                        }, label: {
+                            Image(systemName: "arrowtriangle.forward")
+                                .foregroundColor(.black)
+                                .font(.title2)
+                        })
+                    }
                     
                 }
                 
