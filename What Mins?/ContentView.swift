@@ -160,6 +160,59 @@ struct ContentView: View {
                 }
                 
                 Spacer()
+                    .frame(height : 50)
+                            
+                // Quick Button
+                Group {
+                    VStack {
+                        HStack {
+                            Button(action : {
+                                selectedInterval = 1
+                            }, label : {
+                                Text("1m")
+                            })
+                            
+                            Button(action : {
+                                selectedInterval = 5
+                            }, label : {
+                                Text("5m")
+                            })
+                            
+                            Button(action : {
+                                selectedInterval = 10
+                            }, label : {
+                                Text("10m")
+                            })
+                        }
+                        
+                        Spacer()
+                            .frame(height:20)
+                        
+                        HStack {
+                            Button(action : {
+                                selectedInterval = 20
+                            }, label : {
+                                Text("20m")
+                            })
+                            
+                            Button(action : {
+                                selectedInterval = 30
+                            }, label : {
+                                Text("30m")
+                            })
+                            
+                            Button(action : {
+                                selectedInterval = 60
+                            }, label : {
+                                Text("60m")
+                            })
+                        }
+                    }
+                }
+
+
+                
+                Spacer()
                 Spacer()
                 
                     .onAppear {
