@@ -294,7 +294,6 @@ struct ContentView: View {
             if muteMode {
                 speechSynthesizer.vibrate()
             } else {
-                showMessage()
                 speechSynthesizer.speak(timeString)
             }
         }
@@ -306,23 +305,7 @@ struct ContentView: View {
                 completion(muteMode)
             }
     }
-    
-    func showMessage() {
-        let alertController = UIAlertController(title: "Status", message: "MuteMode Off", preferredStyle: .alert)
-        
-        let okAction = UIAlertAction(title: "확인", style: .default) { _ in
-            alertController.dismiss(animated: true, completion: nil)
-        }
-        
-        alertController.addAction(okAction)
-        
-        // 현재 화면의 뷰 컨트롤러에서 메시지 창을 표시
-        UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
-    }
-    
 }
-
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

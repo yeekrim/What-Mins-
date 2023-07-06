@@ -6,6 +6,7 @@
 //
 
 import AVFoundation
+import UIKit
 
 class SpeechSynthesizer : ObservableObject {
     private let synthesizer: AVSpeechSynthesizer
@@ -28,8 +29,8 @@ class SpeechSynthesizer : ObservableObject {
     }
     
     func vibrate() {
-        let systemSoundID : SystemSoundID = kSystemSoundID_Vibrate
-        AudioServicesPlaySystemSound(systemSoundID)
+        let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.success)
     }
     
     func updateSelectedLanguage(_ language: String) {
