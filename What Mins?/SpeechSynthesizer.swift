@@ -27,6 +27,11 @@ class SpeechSynthesizer : ObservableObject {
         synthesizer.stopSpeaking(at: .immediate)
     }
     
+    func vibrate() {
+        let systemSoundID : SystemSoundID = kSystemSoundID_Vibrate
+        AudioServicesPlaySystemSound(systemSoundID)
+    }
+    
     func updateSelectedLanguage(_ language: String) {
             selectedLanguage = language
         }
