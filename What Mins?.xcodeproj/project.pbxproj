@@ -15,6 +15,7 @@
 		4016F0CE2A28568100593AFE /* TimeSpeakerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4016F0CD2A28568100593AFE /* TimeSpeakerUITests.swift */; };
 		4016F0D02A28568100593AFE /* TimeSpeakerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4016F0CF2A28568100593AFE /* TimeSpeakerUITestsLaunchTests.swift */; };
 		4016F0DD2A28581600593AFE /* SpeechSynthesizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4016F0DC2A28581600593AFE /* SpeechSynthesizer.swift */; };
+		FFBDCD0C2A5670E7008C339C /* SKMuteSwitchDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = FFBDCD0B2A5670E6008C339C /* SKMuteSwitchDetector.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,9 @@
 		4016F0CD2A28568100593AFE /* TimeSpeakerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSpeakerUITests.swift; sourceTree = "<group>"; };
 		4016F0CF2A28568100593AFE /* TimeSpeakerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSpeakerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4016F0DC2A28581600593AFE /* SpeechSynthesizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechSynthesizer.swift; sourceTree = "<group>"; };
+		FFBDCD092A5670E6008C339C /* What Mins?-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "What Mins?-Bridging-Header.h"; sourceTree = "<group>"; };
+		FFBDCD0A2A5670E6008C339C /* SKMuteSwitchDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMuteSwitchDetector.h; sourceTree = "<group>"; };
+		FFBDCD0B2A5670E6008C339C /* SKMuteSwitchDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMuteSwitchDetector.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +103,11 @@
 				4016F0B42A28568000593AFE /* ContentView.swift */,
 				4016F0DC2A28581600593AFE /* SpeechSynthesizer.swift */,
 				4016F0B22A28568000593AFE /* TimeSpeakerApp.swift */,
+				FFBDCD0A2A5670E6008C339C /* SKMuteSwitchDetector.h */,
+				FFBDCD0B2A5670E6008C339C /* SKMuteSwitchDetector.m */,
 				4016F0B62A28568100593AFE /* Assets.xcassets */,
 				4016F0B82A28568100593AFE /* Preview Content */,
+				FFBDCD092A5670E6008C339C /* What Mins?-Bridging-Header.h */,
 			);
 			path = "What Mins?";
 			sourceTree = "<group>";
@@ -198,6 +205,7 @@
 				TargetAttributes = {
 					4016F0AE2A28568000593AFE = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1430;
 					};
 					4016F0BE2A28568100593AFE = {
 						CreatedOnToolsVersion = 14.2;
@@ -263,6 +271,7 @@
 			files = (
 				4016F0B52A28568000593AFE /* ContentView.swift in Sources */,
 				4016F0B32A28568000593AFE /* TimeSpeakerApp.swift in Sources */,
+				FFBDCD0C2A5670E7008C339C /* SKMuteSwitchDetector.m in Sources */,
 				4016F0DD2A28581600593AFE /* SpeechSynthesizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,10 +430,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"What Mins?/Preview Content\"";
-				DEVELOPMENT_TEAM = 5M5VM39FM9;
+				DEVELOPMENT_TEAM = KDRS94T5H3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -440,6 +450,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.giljihun.TimeSpeaker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "What Mins?/What Mins?-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -450,10 +462,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"What Mins?/Preview Content\"";
-				DEVELOPMENT_TEAM = 5M5VM39FM9;
+				DEVELOPMENT_TEAM = KDRS94T5H3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -469,6 +482,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.giljihun.TimeSpeaker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "What Mins?/What Mins?-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

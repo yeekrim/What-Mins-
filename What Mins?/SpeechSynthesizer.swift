@@ -6,6 +6,7 @@
 //
 
 import AVFoundation
+import UIKit
 
 class SpeechSynthesizer : ObservableObject {
     private let synthesizer: AVSpeechSynthesizer
@@ -25,6 +26,11 @@ class SpeechSynthesizer : ObservableObject {
 
     func stopSpeaking() {
         synthesizer.stopSpeaking(at: .immediate)
+    }
+    
+    func vibrate() {
+        let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.success)
     }
     
     func updateSelectedLanguage(_ language: String) {

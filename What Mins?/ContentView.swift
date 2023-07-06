@@ -290,8 +290,21 @@ struct ContentView: View {
             let formatter = DateFormatter()
             formatter.timeStyle = .short
             let timeString = formatter.string(from: Date())
-            speechSynthesizer.speak(timeString)
+        DetectMuteMode { muteMode in
+            if muteMode {
+                speechSynthesizer.vibrate()
+            } else {
+                speechSynthesizer.speak(timeString)
+            }
         }
+    }
+    
+    func DetectMuteMode(completion: @escaping (Bool) -> Void) {
+            SKMuteSwitchDetector.checkSwitch { (success: Bool, silent: Bool) in
+                let muteMode = success && silent
+                completion(muteMode)
+            }
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
