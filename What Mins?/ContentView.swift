@@ -13,7 +13,7 @@ struct ContentView: View {
     @State private var selectedInterval: Int = 1
     @State private var isUpdatingTime = false
     @StateObject private var speechSynthesizer = SpeechSynthesizer()
-    @State private var selectedLanguage: String = "ko-KR"
+    @State private var selectedLanguage = "ko-KR"
     @State private var targetTimeWorkItem: DispatchWorkItem?
 
     var body: some View {
@@ -27,6 +27,7 @@ struct ContentView: View {
                             Button(action: {
                                 speechSynthesizer.updateSelectedLanguage("ko-KR")
                                 selectedLanguage = "ko-KR"
+                                UserDefaults.standard.set(selectedLanguage, forKey: "Language")
                             }) {
                                 Label("Korean", systemImage: selectedLanguage == "ko-KR" ? "checkmark" : "")
                             }
@@ -34,6 +35,7 @@ struct ContentView: View {
                             Button(action: {
                                 speechSynthesizer.updateSelectedLanguage("en-US")
                                 selectedLanguage = "en-US"
+                                UserDefaults.standard.set(selectedLanguage, forKey: "Language")
                             }) {
                                 Label("English(US)", systemImage: selectedLanguage == "en-US" ? "checkmark" : "")
                             }
@@ -41,6 +43,7 @@ struct ContentView: View {
                             Button(action: {
                                 speechSynthesizer.updateSelectedLanguage("en-UK")
                                 selectedLanguage = "en-UK"
+                                UserDefaults.standard.set(selectedLanguage, forKey: "Language")
                             }) {
                                 Label("English(UK)", systemImage: selectedLanguage == "en-UK" ? "checkmark" : "")
                             }
@@ -48,6 +51,7 @@ struct ContentView: View {
                             Button(action: {
                                 speechSynthesizer.updateSelectedLanguage("es-ES")
                                 selectedLanguage = "es-ES"
+                                UserDefaults.standard.set(selectedLanguage, forKey: "Language")
                             }) {
                                 Label("Spanish", systemImage: selectedLanguage == "es-ES" ? "checkmark" : "")
                             }
@@ -55,6 +59,7 @@ struct ContentView: View {
                             Button(action: {
                                 speechSynthesizer.updateSelectedLanguage("zh-CN")
                                 selectedLanguage = "zh-CN"
+                                UserDefaults.standard.set(selectedLanguage, forKey: "Language")
                             }) {
                                 Label("Chinese", systemImage: selectedLanguage == "zh-CN" ? "checkmark" : "")
                             }
@@ -62,6 +67,7 @@ struct ContentView: View {
                             Button(action: {
                                 speechSynthesizer.updateSelectedLanguage("ja-JP")
                                 selectedLanguage = "ja-JP"
+                                UserDefaults.standard.set(selectedLanguage, forKey: "Language")
                             }) {
                                 Label("Japanese", systemImage: selectedLanguage == "ja-JP" ? "checkmark" : "")
                             }
@@ -69,6 +75,7 @@ struct ContentView: View {
                             Button(action: {
                                 speechSynthesizer.updateSelectedLanguage("de-DE")
                                 selectedLanguage = "de-DE"
+                                UserDefaults.standard.set(selectedLanguage, forKey: "Language")
                             }) {
                                 Label("German", systemImage: selectedLanguage == "de-DE" ? "checkmark" : "")
                             }
@@ -76,13 +83,28 @@ struct ContentView: View {
                             Button(action: {
                                 speechSynthesizer.updateSelectedLanguage("fr-FR")
                                 selectedLanguage = "fr-FR"
+                                UserDefaults.standard.set(selectedLanguage, forKey: "Language")
                             }) {
                                 Label("French", systemImage: selectedLanguage == "fr-FR" ? "checkmark" : "")
                             }
                         }
                         
                     } label: {
-                        Label("Language", systemImage: "globe")
+                        if selectedLanguage == "en-UK" || selectedLanguage == "en-US" {
+                            Label("Language", systemImage: "globe")
+                        } else if selectedLanguage == "ko-KR" {
+                            Label("언어", systemImage: "globe")
+                        } else if selectedLanguage == "es-ES" {
+                            Label("lenguaje", systemImage: "globe")
+                        } else if selectedLanguage == "zh-CN" {
+                            Label("语言", systemImage: "globe")
+                        }  else if selectedLanguage == "ja-JP"{
+                            Label("言語", systemImage: "globe")
+                        } else if selectedLanguage == "de-DE" {
+                            Label("Sprache", systemImage: "globe")
+                        } else if selectedLanguage == "fr-FR" {
+                            Label("langue", systemImage: "globe")
+                        }
                     }
                     .padding(7)
                     .padding(.leading, -3.0)
