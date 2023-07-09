@@ -4,5 +4,7 @@
 /
 /
 /
+// sprint //
+기능개발 ~7/11
 
 (An app that sets the desired interval and gives a voice notification at that time.)
