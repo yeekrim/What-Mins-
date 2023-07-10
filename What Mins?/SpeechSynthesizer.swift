@@ -19,12 +19,9 @@ class SpeechSynthesizer : ObservableObject {
     init() {
         self.synthesizer = AVSpeechSynthesizer()
         loadSelectedLanguage()
-        print("SS's SelectedLanguage : \(selectedLanguage)")
     }
 
     func speak(_ text: String) {
-        
-        print("speaking language: \(selectedLanguage)")
         let utterance = AVSpeechUtterance(string: text)
         utterance.voice = AVSpeechSynthesisVoice(language: selectedLanguage)
         utterance.rate = 0.4

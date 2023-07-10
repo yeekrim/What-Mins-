@@ -2,11 +2,22 @@
   Localizable.strings
   What Mins?
 
-  Created by mobicom on 2023/07/01.
+  Created by mobicom on 2023/07/10.
   
 */
 
-// Localizable (English)
-"현재 언어" = "Current Language";
-"한국어 (대한민국)" = "English (USA)";
+"Language" = "언어";
+"Country Language Settings" = "국가별 언어 설정";
+"⚡️Activating⚡️" = "⚡️활성화⚡️";
+"Interval:" = "시간 간격";
+"Start" = "시작";
+"Stop" = "중지";
+"Min" = "분";
+"1m" = "1분";
+"3m" = "3분";
+"5m" = "5분";
+"10m" = "10분";
+"30m" = "30분";
+"60m" = "60분";
+
 

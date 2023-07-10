@@ -23,13 +23,13 @@ struct ContentView: View {
             Group {
                 HStack {
                     Menu {
-                        Section("Set your voice language") {
+                        Section("Country Language Settings") {
                             Button(action: {
                                 speechSynthesizer.updateSelectedLanguage("ko-KR")
                                 selectedLanguage = "ko-KR"
                                 UserDefaults.standard.set(selectedLanguage, forKey: "selectedLanguage")
                             }) {
-                                Label("Korean", systemImage: selectedLanguage == "ko-KR" ? "checkmark" : "")
+                                Label("한국어", systemImage: selectedLanguage == "ko-KR" ? "checkmark" : "")
                             }
                             
                             Button(action: {
@@ -53,7 +53,7 @@ struct ContentView: View {
                                 selectedLanguage = "es-ES"
                                 UserDefaults.standard.set(selectedLanguage, forKey: "selectedLanguage")
                             }) {
-                                Label("Spanish", systemImage: selectedLanguage == "es-ES" ? "checkmark" : "")
+                                Label("Espagnol", systemImage: selectedLanguage == "es-ES" ? "checkmark" : "")
                             }
                             
                             Button(action: {
@@ -61,7 +61,7 @@ struct ContentView: View {
                                 selectedLanguage = "zh-CN"
                                 UserDefaults.standard.set(selectedLanguage, forKey: "selectedLanguage")
                             }) {
-                                Label("Chinese", systemImage: selectedLanguage == "zh-CN" ? "checkmark" : "")
+                                Label("中文", systemImage: selectedLanguage == "zh-CN" ? "checkmark" : "")
                             }
                             
                             Button(action: {
@@ -69,7 +69,7 @@ struct ContentView: View {
                                 selectedLanguage = "ja-JP"
                                 UserDefaults.standard.set(selectedLanguage, forKey: "selectedLanguage")
                             }) {
-                                Label("Japanese", systemImage: selectedLanguage == "ja-JP" ? "checkmark" : "")
+                                Label("日本語", systemImage: selectedLanguage == "ja-JP" ? "checkmark" : "")
                             }
                             
                             Button(action: {
@@ -77,7 +77,7 @@ struct ContentView: View {
                                 selectedLanguage = "de-DE"
                                 UserDefaults.standard.set(selectedLanguage, forKey: "selectedLanguage")
                             }) {
-                                Label("German", systemImage: selectedLanguage == "de-DE" ? "checkmark" : "")
+                                Label("Deutsch", systemImage: selectedLanguage == "de-DE" ? "checkmark" : "")
                             }
                             
                             Button(action: {
@@ -85,7 +85,15 @@ struct ContentView: View {
                                 selectedLanguage = "fr-FR"
                                 UserDefaults.standard.set(selectedLanguage, forKey: "selectedLanguage")
                             }) {
-                                Label("French", systemImage: selectedLanguage == "fr-FR" ? "checkmark" : "")
+                                Label("Français", systemImage: selectedLanguage == "fr-FR" ? "checkmark" : "")
+                            }
+                            
+                            Button(action: {
+                                speechSynthesizer.updateSelectedLanguage("it-IT")
+                                selectedLanguage = "it-IT"
+                                UserDefaults.standard.set(selectedLanguage, forKey: "selectedLanguage")
+                            }) {
+                                Label("Lingua italiana", systemImage: selectedLanguage == "it-IT" ? "checkmark" : "")
                             }
                         }
                         
@@ -119,9 +127,20 @@ struct ContentView: View {
                     .font(.largeTitle)
                     .padding()
                 
-                Text("Interval: \(selectedInterval) min" + (selectedInterval > 1 ? "s" : ""))
-                    .padding()
-                    .bold()
+                HStack {
+                    Text("Interval:")
+                        .padding(.top, 3.0)
+                        .font(.title2)
+                    
+                    Text("\(selectedInterval)")
+                        .font(.title)
+                    
+                    Text("Min")
+                        .padding(.top, 3.0)
+                        .font(.title2)
+                }
+                .padding()
+                .bold()
                 
                 HStack {
                     if !isUpdatingTime {
@@ -148,7 +167,7 @@ struct ContentView: View {
                                 .bold()
                                 .font(.largeTitle)
                         } else {
-                            Text("Rush!")
+                            Text("Start")
                                 .bold()
                                 .font(.largeTitle)
                         }
@@ -181,15 +200,15 @@ struct ContentView: View {
                             })
                             
                             Button(action : {
-                                selectedInterval = 5
+                                selectedInterval = 3
                             }, label : {
-                                Text("5m")
+                                Text("3m")
                             })
                             
                             Button(action : {
-                                selectedInterval = 10
+                                selectedInterval = 5
                             }, label : {
-                                Text("10m")
+                                Text("5m")
                             })
                         }
                         
@@ -198,9 +217,10 @@ struct ContentView: View {
                         
                         HStack {
                             Button(action : {
-                                selectedInterval = 20
+                                selectedInterval = 10
                             }, label : {
-                                Text("20m")
+                                Text("10m")
+                                
                             })
                             
                             Button(action : {

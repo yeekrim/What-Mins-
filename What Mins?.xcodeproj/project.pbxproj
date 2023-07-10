@@ -15,6 +15,7 @@
 		4016F0CE2A28568100593AFE /* TimeSpeakerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4016F0CD2A28568100593AFE /* TimeSpeakerUITests.swift */; };
 		4016F0D02A28568100593AFE /* TimeSpeakerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4016F0CF2A28568100593AFE /* TimeSpeakerUITestsLaunchTests.swift */; };
 		4016F0DD2A28581600593AFE /* SpeechSynthesizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4016F0DC2A28581600593AFE /* SpeechSynthesizer.swift */; };
+		F2804C482A5BF2C6005D9EB3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F2804C4A2A5BF2C6005D9EB3 /* Localizable.strings */; };
 		FFBDCD0C2A5670E7008C339C /* SKMuteSwitchDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = FFBDCD0B2A5670E6008C339C /* SKMuteSwitchDetector.m */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,14 @@
 		4016F0CD2A28568100593AFE /* TimeSpeakerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSpeakerUITests.swift; sourceTree = "<group>"; };
 		4016F0CF2A28568100593AFE /* TimeSpeakerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSpeakerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4016F0DC2A28581600593AFE /* SpeechSynthesizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechSynthesizer.swift; sourceTree = "<group>"; };
+		F2804C492A5BF2C6005D9EB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F2804C4B2A5BF303005D9EB3 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F2804C4D2A5BF391005D9EB3 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F2804C4E2A5BF3B0005D9EB3 /* zh-HK */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-HK"; path = "zh-HK.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		F2804C4F2A5BF3BE005D9EB3 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F2804C502A5BF3C9005D9EB3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F2804C512A5BF3D2005D9EB3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F2804C522A5BF439005D9EB3 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FFBDCD092A5670E6008C339C /* What Mins?-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "What Mins?-Bridging-Header.h"; sourceTree = "<group>"; };
 		FFBDCD0A2A5670E6008C339C /* SKMuteSwitchDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKMuteSwitchDetector.h; sourceTree = "<group>"; };
 		FFBDCD0B2A5670E6008C339C /* SKMuteSwitchDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKMuteSwitchDetector.m; sourceTree = "<group>"; };
@@ -108,6 +117,7 @@
 				4016F0B62A28568100593AFE /* Assets.xcassets */,
 				4016F0B82A28568100593AFE /* Preview Content */,
 				FFBDCD092A5670E6008C339C /* What Mins?-Bridging-Header.h */,
+				F2804C4A2A5BF2C6005D9EB3 /* Localizable.strings */,
 			);
 			path = "What Mins?";
 			sourceTree = "<group>";
@@ -225,6 +235,12 @@
 				en,
 				Base,
 				ko,
+				es,
+				"zh-HK",
+				ja,
+				de,
+				fr,
+				it,
 			);
 			mainGroup = 4016F0A62A28568000593AFE;
 			productRefGroup = 4016F0B02A28568000593AFE /* Products */;
@@ -244,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4016F0BA2A28568100593AFE /* Preview Assets.xcassets in Resources */,
+				F2804C482A5BF2C6005D9EB3 /* Localizable.strings in Resources */,
 				4016F0B72A28568100593AFE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,6 +324,24 @@
 			targetProxy = 4016F0CA2A28568100593AFE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F2804C4A2A5BF2C6005D9EB3 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2804C492A5BF2C6005D9EB3 /* en */,
+				F2804C4B2A5BF303005D9EB3 /* ko */,
+				F2804C4D2A5BF391005D9EB3 /* es */,
+				F2804C4E2A5BF3B0005D9EB3 /* zh-HK */,
+				F2804C4F2A5BF3BE005D9EB3 /* ja */,
+				F2804C502A5BF3C9005D9EB3 /* de */,
+				F2804C512A5BF3D2005D9EB3 /* fr */,
+				F2804C522A5BF439005D9EB3 /* it */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		4016F0D12A28568100593AFE /* Debug */ = {
