@@ -263,7 +263,7 @@ struct ContentView: View {
             return
         }
 
-        var nextTargetMinute = (currentMinute + selectedInterval) % 60
+        var nextTargetMinute = (currentMinute + selectedInterval)
         var nextTargetHour = currentHour
         
         if nextTargetMinute >= 60 {
@@ -271,8 +271,8 @@ struct ContentView: View {
             nextTargetMinute %= 60
         }
         
-        if nextTargetHour >= 24 {
-            nextTargetHour %= 24
+        if nextTargetHour == 24 {
+            nextTargetHour = 0
         }
         
         let targetTime = calendar.date(bySettingHour: currentHour, minute: nextTargetMinute, second: 0, of: Date())!
