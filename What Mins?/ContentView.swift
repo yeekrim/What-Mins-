@@ -124,7 +124,8 @@ struct ContentView: View {
                     .opacity(isUpdatingTime ? 1.0 : 0.0)
                 
                 Text(currentTime)
-                    .font(.largeTitle)
+                    .font(.system(size: 50))
+                    .fontWeight(.light)
                     .padding()
                 
                 HStack {
@@ -193,23 +194,32 @@ struct ContentView: View {
                 Group {
                     VStack {
                         HStack {
-                            Button(action : {
+                            Button(action: {
                                 selectedInterval = 1
-                            }, label : {
+                            }, label: {
                                 Text("1m")
+                                    .font(.system(size: 30))
+                                    .foregroundColor(.black)
                             })
+                            .offset(x:-40,y:0)
                             
                             Button(action : {
                                 selectedInterval = 3
                             }, label : {
                                 Text("3m")
+                                    .font(.system(size: 30))
+                                    .foregroundColor(.black)
                             })
+                            .offset(x:0,y:0)
                             
                             Button(action : {
                                 selectedInterval = 5
                             }, label : {
                                 Text("5m")
+                                    .font(.system(size: 30))
+                                    .foregroundColor(.black)
                             })
+                            .offset(x:40,y:0)
                         }
                         
                         Spacer()
@@ -220,20 +230,28 @@ struct ContentView: View {
                                 selectedInterval = 10
                             }, label : {
                                 Text("10m")
+                                    .font(.system(size: 30))
+                                    .foregroundColor(.black)
                                 
                             })
+                            .offset(x:-23,y:0)
                             
                             Button(action : {
                                 selectedInterval = 30
                             }, label : {
                                 Text("30m")
+                                    .font(.system(size: 30))
+                                    .foregroundColor(.black)
                             })
                             
                             Button(action : {
                                 selectedInterval = 60
                             }, label : {
                                 Text("60m")
+                                    .font(.system(size: 30))
+                                    .foregroundColor(.black)
                             })
+                            .offset(x:25,y:0)
                         }
                     }
                     .opacity(isUpdatingTime ? 0.0 : 1.0)
