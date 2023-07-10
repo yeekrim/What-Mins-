@@ -284,6 +284,8 @@ struct ContentView: View {
                 }
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + timeDiff, execute: targetTimeWorkItem!)
+            print("nextTarget Hour: \(nextTargetHour)")
+            print("nextTarget Min: \(nextTargetMinute)")
         }
 
     func speakCurrentTime() {
