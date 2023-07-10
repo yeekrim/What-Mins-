@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    //@State 속성은 값이 변경될 때마다 뷰를 새로 그리는 기능을 한다.
+    
     @State private var currentTime: String = ""
     @State private var selectedInterval: Int = 1
     @State private var isUpdatingTime = false
-    @StateObject private var speechSynthesizer = SpeechSynthesizer()
-    @State private var selectedLanguage: String = "ko-KR"
+    @State private var selectedLanguage: String = UserDefaults.standard.string(forKey: "selectedLanguage") ?? "ko-KR"
     @State private var targetTimeWorkItem: DispatchWorkItem?
+    @StateObject private var speechSynthesizer = SpeechSynthesizer()
 
     var body: some View {
         
@@ -27,6 +27,7 @@ struct ContentView: View {
                             Button(action: {
                                 speechSynthesizer.updateSelectedLanguage("ko-KR")
                                 selectedLanguage = "ko-KR"
+                                UserDefaults.standard.set(selectedLanguage, forKey: "selectedLanguage")
                             }) {
                                 Label("Korean", systemImage: selectedLanguage == "ko-KR" ? "checkmark" : "")
                             }
@@ -34,6 +35,7 @@ struct ContentView: View {
                             Button(action: {
                                 speechSynthesizer.updateSelectedLanguage("en-US")
                                 selectedLanguage = "en-US"
+                                UserDefaults.standard.set(selectedLanguage, forKey: "selectedLanguage")
                             }) {
                                 Label("English(US)", systemImage: selectedLanguage == "en-US" ? "checkmark" : "")
                             }
@@ -41,6 +43,7 @@ struct ContentView: View {
                             Button(action: {
                                 speechSynthesizer.updateSelectedLanguage("en-UK")
                                 selectedLanguage = "en-UK"
+                                UserDefaults.standard.set(selectedLanguage, forKey: "selectedLanguage")
                             }) {
                                 Label("English(UK)", systemImage: selectedLanguage == "en-UK" ? "checkmark" : "")
                             }
@@ -48,6 +51,7 @@ struct ContentView: View {
                             Button(action: {
                                 speechSynthesizer.updateSelectedLanguage("es-ES")
                                 selectedLanguage = "es-ES"
+                                UserDefaults.standard.set(selectedLanguage, forKey: "selectedLanguage")
                             }) {
                                 Label("Spanish", systemImage: selectedLanguage == "es-ES" ? "checkmark" : "")
                             }
@@ -55,6 +59,7 @@ struct ContentView: View {
                             Button(action: {
                                 speechSynthesizer.updateSelectedLanguage("zh-CN")
                                 selectedLanguage = "zh-CN"
+                                UserDefaults.standard.set(selectedLanguage, forKey: "selectedLanguage")
                             }) {
                                 Label("Chinese", systemImage: selectedLanguage == "zh-CN" ? "checkmark" : "")
                             }
@@ -62,6 +67,7 @@ struct ContentView: View {
                             Button(action: {
                                 speechSynthesizer.updateSelectedLanguage("ja-JP")
                                 selectedLanguage = "ja-JP"
+                                UserDefaults.standard.set(selectedLanguage, forKey: "selectedLanguage")
                             }) {
                                 Label("Japanese", systemImage: selectedLanguage == "ja-JP" ? "checkmark" : "")
                             }
@@ -69,6 +75,7 @@ struct ContentView: View {
                             Button(action: {
                                 speechSynthesizer.updateSelectedLanguage("de-DE")
                                 selectedLanguage = "de-DE"
+                                UserDefaults.standard.set(selectedLanguage, forKey: "selectedLanguage")
                             }) {
                                 Label("German", systemImage: selectedLanguage == "de-DE" ? "checkmark" : "")
                             }
@@ -76,6 +83,7 @@ struct ContentView: View {
                             Button(action: {
                                 speechSynthesizer.updateSelectedLanguage("fr-FR")
                                 selectedLanguage = "fr-FR"
+                                UserDefaults.standard.set(selectedLanguage, forKey: "selectedLanguage")
                             }) {
                                 Label("French", systemImage: selectedLanguage == "fr-FR" ? "checkmark" : "")
                             }
@@ -223,6 +231,13 @@ struct ContentView: View {
         .onChange(of: selectedLanguage) { newValue in
             print("Selected Language: \(newValue)")
         }
+        .onAppear {
+            // 앱 시작 시 선택된 언어를 복원
+            if let storedLanguage = UserDefaults.standard.string(forKey: "selectedLanguage") {
+                selectedLanguage = storedLanguage
+            }
+            print("Current Language: \(selectedLanguage)")
+        }
         
     }
 
@@ -242,18 +257,16 @@ struct ContentView: View {
         stopUpdatingTime() // Stop previous updates if any
         isUpdatingTime = true
         updateTargetTime()
-        print("startUpdatingTime - targetTimeWorkItem: \(String(describing: targetTimeWorkItem))")
     }
 
-    // Stop Btn ->
+    // Stop Btn -> 생성된 인터벌객체 중지 및 제거
     func stopUpdatingTime() {
         isUpdatingTime = false
         targetTimeWorkItem?.cancel()
         targetTimeWorkItem = nil
-        print("stopUpdatingTime - targetTimeWorkItem: \(String(describing: targetTimeWorkItem))")
     }
 
-    //
+    // nextTarget을 조정하여 생성
     func updateTargetTime() {
         let calendar = Calendar.current
         let currentComponents = calendar.dateComponents([.hour, .minute, .second], from: Date())
@@ -262,10 +275,10 @@ struct ContentView: View {
                 let currentMinute = currentComponents.minute else {
             return
         }
-
+        
         var nextTargetMinute = (currentMinute + selectedInterval)
         var nextTargetHour = currentHour
-        
+    
         if nextTargetMinute >= 60 {
             nextTargetHour += 1
             nextTargetMinute %= 60
@@ -275,32 +288,35 @@ struct ContentView: View {
             nextTargetHour = 0
         }
         
-        let targetTime = calendar.date(bySettingHour: currentHour, minute: nextTargetMinute, second: 0, of: Date())!
+        let targetTime = calendar.date(bySettingHour: nextTargetHour, minute: nextTargetMinute, second: 0, of: Date())!
         let timeDiff = targetTime.timeIntervalSinceNow
             targetTimeWorkItem = DispatchWorkItem {
-                if isUpdatingTime {
-                    speakCurrentTime()
-                    updateTargetTime()
-                }
+            if isUpdatingTime {
+                speakCurrentTime()
+                updateTargetTime()
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + timeDiff, execute: targetTimeWorkItem!)
-            print("nextTarget Hour: \(nextTargetHour)")
-            print("nextTarget Min: \(nextTargetMinute)")
         }
+        DispatchQueue.main.asyncAfter(deadline: .now() + timeDiff, execute: targetTimeWorkItem!)
+        print("nextTarget Hour: \(nextTargetHour)")
+        print("nextTarget Min: \(nextTargetMinute)")
+    }
 
+    // 무음모드 여부를 판단하여 소리 or 진동 출력
     func speakCurrentTime() {
-            let formatter = DateFormatter()
-            formatter.timeStyle = .short
-            let timeString = formatter.string(from: Date())
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        
+        let timeString = formatter.string(from: Date())
         DetectMuteMode { muteMode in
             if muteMode {
                 speechSynthesizer.vibrate()
-            } else {
+                } else {
                 speechSynthesizer.speak(timeString)
             }
         }
     }
     
+    // 무음모드 여부 판단
     func DetectMuteMode(completion: @escaping (Bool) -> Void) {
             SKMuteSwitchDetector.checkSwitch { (success: Bool, silent: Bool) in
                 let muteMode = success && silent
