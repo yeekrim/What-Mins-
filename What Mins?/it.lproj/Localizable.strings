@@ -5,3 +5,17 @@
   Created by mobicom on 2023/07/10.
   
 */
+
+"Language" = "Lingua";
+"Country Language Settings" = "impostazione linguistica";
+"⚡️Activating⚡️" = "⚡️attivazione⚡️";
+"Interval:" = "intervallo";
+"Start" = "princìpio";
+"Stop" = "fermare";
+"Min" = "minuto";
+"1m" = "1m";
+"3m" = "3m";
+"5m" = "5m";
+"10m" = "10m";
+"30m" = "30m";
+"60m" = "60m";

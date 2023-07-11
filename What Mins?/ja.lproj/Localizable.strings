@@ -5,3 +5,17 @@
   Created by mobicom on 2023/07/10.
   
 */
+
+"Language" = "言語";
+"Country Language Settings" = "言語設定";
+"⚡️Activating⚡️" = "⚡️活性化⚡️";
+"Interval:" = "間";
+"Start" = "スタート";
+"Stop" = "ストップ";
+"Min" = "分";
+"1m" = "1分";
+"3m" = "3分";
+"5m" = "5分";
+"10m" = "10分";
+"30m" = "30分";
+"60m" = "60分";
