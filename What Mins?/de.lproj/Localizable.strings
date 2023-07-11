@@ -8,11 +8,11 @@
 
 "Language" = "Sprache";
 "Country Language Settings" = "Spracheinstellungen";
-"⚡️Activating⚡️" = "⚡️Aktivieren⚡️";
-"Interval:" = "intervall";
+"⚡️ Activating ⚡️" = "⚡️ Aktivieren ⚡️";
+"Interval:" = "Intervall:";
 "Start" = "Beginn";
 "Stop" = "Halt";
-"Min" = "minute";
+"Min" = "Min";
 "1m" = "1m";
 "3m" = "3m";
 "5m" = "5m";

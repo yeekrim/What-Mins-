@@ -6,10 +6,10 @@
   
 */
 
-"Language" = "言語";
-"Country Language Settings" = "言語設定";
-"⚡️Activating⚡️" = "⚡️活性化⚡️";
-"Interval:" = "間";
+"Language" = "げんご";
+"Country Language Settings" = "国別言語設定";
+"⚡️ Activating ⚡️" = "⚡️ 活性化 ⚡️";
+"Interval:" = "間隔:";
 "Start" = "スタート";
 "Stop" = "ストップ";
 "Min" = "分";

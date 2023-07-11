@@ -7,12 +7,12 @@
 */
 
 "Language" = "Lingua";
-"Country Language Settings" = "impostazione linguistica";
-"⚡️Activating⚡️" = "⚡️attivazione⚡️";
-"Interval:" = "intervallo";
+"Country Language Settings" = "Impostazione linguistica";
+"⚡️ Activating ⚡️" = "⚡️ Attivazione ⚡️";
+"Interval:" = "Intervallo:";
 "Start" = "princìpio";
 "Stop" = "fermare";
-"Min" = "minuto";
+"Min" = "Min";
 "1m" = "1m";
 "3m" = "3m";
 "5m" = "5m";

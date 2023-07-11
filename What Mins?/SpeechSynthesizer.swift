@@ -10,7 +10,7 @@ import UIKit
 
 class SpeechSynthesizer : ObservableObject {
     private let synthesizer: AVSpeechSynthesizer
-    @Published var selectedLanguage: String = "ko-KR" {
+    @Published var selectedLanguage: String = "en-US" {
         didSet {
             UserDefaults.standard.set(selectedLanguage, forKey: "selectedLanguage")
         }
