@@ -32,8 +32,6 @@ struct ContentView: View {
     @AppStorage("Text_60m") var Text_60m: String = UserDefaults.standard.string(forKey: "Text_60m") ?? "60m"
     
     @AppStorage("isFirstLaunch") private var isFirstLaunch: Bool = false
-    @State private var isFirstPlace: String = ""
-    
 
     var body: some View {
         
@@ -68,7 +66,7 @@ struct ContentView: View {
                                 if selectedLanguage.hasPrefix("ko-") {
                                     Label("한국어", systemImage: "checkmark")
                                 } else {
-                                    Label("한국어", systemImage: selectedLanguage == "ko-KR" || isFirstPlace == "ko-Kore_US" ? "checkmark" : "")
+                                    Label("한국어", systemImage: selectedLanguage == "ko-KR" ? "checkmark" : "")
                                 }
                             }
                             
@@ -92,10 +90,10 @@ struct ContentView: View {
                                 Text_60m = "60m "
                                 UserDefaults.standard.set(selectedLanguage, forKey: "selectedLanguage")
                             }) {
-                                if selectedLanguage.hasPrefix("en-US") {
+                                if selectedLanguage.hasPrefix("en_") {
                                     Label("English(US)", systemImage: "checkmark")
                                 } else {
-                                    Label("English(US)", systemImage: selectedLanguage == "en-US" || Locale.current.identifier == "en_US" ? "checkmark" : "")
+                                    Label("English(US)", systemImage: selectedLanguage == "en-US" ? "checkmark" : "")
                                 }
                             }
                             
@@ -119,10 +117,10 @@ struct ContentView: View {
                                 Text_60m = "60m "
                                 UserDefaults.standard.set(selectedLanguage, forKey: "selectedLanguage")
                             }) {
-                                if selectedLanguage.hasPrefix("en-UK") {
+                                if selectedLanguage.hasPrefix("en_UK") {
                                     Label("English(UK)", systemImage: "checkmark")
                                 } else {
-                                    Label("English(UK)", systemImage: selectedLanguage == "en-UK" || isFirstPlace == "en_UK" ? "checkmark" : "")
+                                    Label("English(UK)", systemImage: selectedLanguage == "en-UK" ? "checkmark" : "")
                                 }
                             }
                             
@@ -149,7 +147,7 @@ struct ContentView: View {
                                 if selectedLanguage.hasPrefix("es_") {
                                     Label("Espagnol", systemImage: "checkmark")
                                 } else {
-                                    Label("Espagnol", systemImage: selectedLanguage == "es-ES" || isFirstPlace == "es_ES" ? "checkmark" : "")
+                                    Label("Espagnol", systemImage: selectedLanguage == "es-ES" ? "checkmark" : "")
                                 }
                             }
                             
@@ -176,7 +174,7 @@ struct ContentView: View {
                                 if selectedLanguage.hasPrefix("zh-") {
                                     Label("中文", systemImage: "checkmark")
                                 } else {
-                                    Label("中文", systemImage: (selectedLanguage == "zh-CN" || isFirstPlace == "zh_CN") ? "checkmark" : "")
+                                    Label("中文", systemImage: selectedLanguage == "zh-CN" ? "checkmark" : "")
                                 }
                             }
                             
@@ -203,7 +201,7 @@ struct ContentView: View {
                                 if selectedLanguage.hasPrefix("ja_") {
                                     Label("日本語", systemImage: "checkmark")
                                 } else {
-                                    Label("日本語", systemImage: (selectedLanguage == "ja-JP" || isFirstPlace == "ja_JP") ? "checkmark" : "")
+                                    Label("日本語", systemImage: selectedLanguage == "ja-JP" ? "checkmark" : "")
                                 }
                             }
                             
@@ -230,7 +228,7 @@ struct ContentView: View {
                                 if selectedLanguage.hasPrefix("de_") {
                                     Label("Deutsch", systemImage: "checkmark")
                                 } else {
-                                    Label("Deutsch", systemImage: (selectedLanguage == "de-DE" || isFirstPlace == "de_DE") ? "checkmark" : "")
+                                    Label("Deutsch", systemImage: selectedLanguage == "de-DE" ? "checkmark" : "")
                                 }
                             }
                             
@@ -257,7 +255,7 @@ struct ContentView: View {
                                 if selectedLanguage.hasPrefix("fr_") {
                                     Label("Français", systemImage: "checkmark")
                                 } else {
-                                    Label("Français", systemImage: (selectedLanguage == "fr-FR" || isFirstPlace == "fr_FR") ? "checkmark" : "")
+                                    Label("Français", systemImage: selectedLanguage == "fr-FR" ? "checkmark" : "")
                                 }
                             }
                             
@@ -284,7 +282,7 @@ struct ContentView: View {
                                 if selectedLanguage.hasPrefix("it_") {
                                     Label("Lingua italiana", systemImage: "checkmark")
                                 } else {
-                                    Label("Lingua italiana", systemImage: (selectedLanguage == "it-IT" || isFirstPlace == "it_IT") ? "checkmark" : "")
+                                    Label("Lingua italiana", systemImage: selectedLanguage == "it-IT" ? "checkmark" : "")
                                 }
                             }
                         }
@@ -459,10 +457,8 @@ struct ContentView: View {
                 .onAppear {
                     updateTime()
                     if isFirstLaunch == false {
-                        print("first coming! : your place is \(Locale.current.identifier)")
                         selectedLanguage = Locale.current.identifier
-                        isFirstPlace = selectedLanguage
-                    } else { print(" Hi, old User! : your place is \(Locale.current.identifier)")}
+                    }
                 }
             }
             
@@ -470,22 +466,6 @@ struct ContentView: View {
         .onChange(of: selectedLanguage) { newValue in
             print("Selected Language: \(newValue)")
         }
-        
-//        .onAppear {
-//            // 앱 시작 시 선택된 언어를 복원
-//            if let storedLanguage = UserDefaults.standard.string(forKey: "selectedLanguage") {
-//                selectedLanguage = storedLanguage
-//            }
-//            if let storedSectionText = UserDefaults.standard.string(forKey: "sectionText") {
-//                sectionText = storedSectionText
-//            }
-//        }
-//        .onDisappear {
-//            // 뷰가 사라질 때 UserDefaults에 값을 저장
-//            UserDefaults.standard.set(selectedLanguage, forKey: "selectedLanguage")
-//            UserDefaults.standard.set(sectionText, forKey: "sectionText")
-//        }
-        
     }
 
     // 현재시각 표시
