@@ -33,10 +33,17 @@ struct ContentView: View {
     
     @AppStorage("isFirstLaunch") private var isFirstLaunch: Bool = false
 
+    @State private var btn1_selected: Bool = false
+    @State private var btn3_selected: Bool = false
+    @State private var btn5_selected: Bool = false
+    @State private var btn10_selected: Bool = false
+    @State private var btn30_selected: Bool = false
+    @State private var btn60_selected: Bool = false
+    
+    @State private var remainingTime: Int = 0
+    
     var body: some View {
-        
-        
-        
+             
         VStack{
             // Language Swap
             Group {
@@ -306,7 +313,12 @@ struct ContentView: View {
                 }
             }
             
+            
             Spacer()
+            
+            if isUpdatingTime {
+                Spacer()
+            }
             
             // Time & Control
             Group {
@@ -314,7 +326,6 @@ struct ContentView: View {
                     .font(.title2)
                     .bold()
                     .italic()
-                    .opacity(isUpdatingTime ? 1.0 : 0.0)
                 
                 Text(currentTime)
                     .font(.system(size: 50))
@@ -342,6 +353,18 @@ struct ContentView: View {
                             if (selectedInterval > 1) {
                                 selectedInterval -= 1
                             }
+                            
+                            withAnimation {
+                                if (selectedInterval >= 2) {
+                                    btn1_selected = false
+                                }
+                                btn3_selected = false
+                                btn5_selected = false
+                                btn10_selected = false
+                                btn30_selected = false
+                                btn60_selected = false
+                            }
+                            
                         }, label: {
                             Image(systemName: "arrowtriangle.backward")
                                 .foregroundColor(colorScheme == .dark ? .white : .black)
@@ -372,6 +395,16 @@ struct ContentView: View {
                     if !isUpdatingTime {
                         Button(action: {
                             selectedInterval += 1
+                            
+                            withAnimation {
+                                btn1_selected = false
+                                btn3_selected = false
+                                btn5_selected = false
+                                btn10_selected = false
+                                btn30_selected = false
+                                btn60_selected = false
+                            }
+                            
                         }, label: {
                             Image(systemName: "arrowtriangle.forward")
                                 .foregroundColor(colorScheme == .dark ? .white : .black)
@@ -385,73 +418,161 @@ struct ContentView: View {
                     .frame(height : 50)
                             
                 // Quick Button
-                Group {
-                    VStack {
-                        HStack {
-                            Button(action: {
-                                selectedInterval = 1
-                            }, label: {
-                                Text(LocalizedStringKey(Text_1m))
-                                    .font(.system(size: 30))
-                                    .foregroundColor(colorScheme == .dark ? .white : .black)
-                            })
-                            .offset(x:-40,y:0)
-                            
-                            Button(action : {
-                                selectedInterval = 3
-                            }, label : {
-                                Text(LocalizedStringKey(Text_3m))
-                                    .font(.system(size: 30))
-                                    .foregroundColor(colorScheme == .dark ? .white : .black)
-                            })
-                            .offset(x:0,y:0)
-                            
-                            Button(action : {
-                                selectedInterval = 5
-                            }, label : {
-                                Text(LocalizedStringKey(Text_5m))
-                                    .font(.system(size: 30))
-                                    .foregroundColor(colorScheme == .dark ? .white : .black)
-                            })
-                            .offset(x:40,y:0)
-                        }
-                        
-                        Spacer()
-                            .frame(height:20)
-                        
-                        HStack {
-                            Button(action : {
-                                selectedInterval = 10
-                            }, label : {
-                                Text(LocalizedStringKey(Text_10m))
-                                    .font(.system(size: 30))
-                                    .foregroundColor(colorScheme == .dark ? .white : .black)
+                if !isUpdatingTime {
+                    Group {
+                        VStack {
+                            HStack {
+                                Button(action: {
+                                    selectedInterval = 1
+                                    withAnimation {
+                                        if btn1_selected == false {
+                                            btn1_selected.toggle()
+                                            btn3_selected = false
+                                            btn5_selected = false
+                                            btn10_selected = false
+                                            btn30_selected = false
+                                            btn60_selected = false
+                                        }
+                                    }
+                                }, label: {
+                                    Text(LocalizedStringKey(Text_1m))
+                                        .scaleEffect(btn1_selected ? 1.5 : 1.0)
+                                        .font(.system(size: 30))
+                                        .foregroundColor(colorScheme == .dark ? .white : .black)
+                                })
+                                .offset(x:-40,y:0)
                                 
-                            })
-                            .offset(x:-23,y:0)
+                                
+                                Button(action : {
+                                    selectedInterval = 3
+                                    
+                                    withAnimation {
+                                        if btn3_selected == false {
+                                            btn3_selected.toggle()
+                                            
+                                            btn1_selected = false
+                                            btn5_selected = false
+                                            btn10_selected = false
+                                            btn30_selected = false
+                                            btn60_selected = false
+                                        }
+                                    }
+                                }, label : {
+                                    Text(LocalizedStringKey(Text_3m))
+                                        .scaleEffect(btn3_selected ? 1.5 : 1.0)
+                                        .font(.system(size: 30))
+                                        .font(.system(size: 30))
+                                        .foregroundColor(colorScheme == .dark ? .white : .black)
+                                })
+                                .offset(x:0,y:0)
+                                
+                                
+                                Button(action : {
+                                    selectedInterval = 5
+                                    
+                                    withAnimation {
+                                        if btn5_selected == false {
+                                            btn5_selected.toggle()
+                                            
+                                            btn1_selected = false
+                                            btn3_selected = false
+                                            btn10_selected = false
+                                            btn30_selected = false
+                                            btn60_selected = false
+                                        }
+                                    }
+                                }, label : {
+                                    Text(LocalizedStringKey(Text_5m))
+                                        .font(.system(size: 30))
+                                        .scaleEffect(btn5_selected ? 1.5 : 1.0)
+                                        .foregroundColor(colorScheme == .dark ? .white : .black)
+                                })
+                                .offset(x:40,y:0)
+                            }
                             
-                            Button(action : {
-                                selectedInterval = 30
-                            }, label : {
-                                Text(LocalizedStringKey(Text_30m))
-                                    .font(.system(size: 30))
-                                    .foregroundColor(colorScheme == .dark ? .white : .black)
-                            })
+                            Spacer()
+                                .frame(height:20)
                             
-                            Button(action : {
-                                selectedInterval = 60
-                            }, label : {
-                                Text(LocalizedStringKey(Text_60m))
-                                    .font(.system(size: 30))
-                                    .foregroundColor(colorScheme == .dark ? .white : .black)
-                            })
-                            .offset(x:25,y:0)
+                            HStack {
+                                Button(action : {
+                                    selectedInterval = 10
+                                    
+                                    withAnimation {
+                                        if btn10_selected == false {
+                                            btn10_selected.toggle()
+                                            
+                                            btn1_selected = false
+                                            btn3_selected = false
+                                            btn5_selected = false
+                                            btn30_selected = false
+                                            btn60_selected = false
+                                        }
+                                    }
+                                }, label : {
+                                    Text(LocalizedStringKey(Text_10m))
+                                        .font(.system(size: 30))
+                                        .scaleEffect(btn10_selected ? 1.5 : 1.0)
+                                        .foregroundColor(colorScheme == .dark ? .white : .black)
+                                    
+                                })
+                                .offset(x:-23,y:0)
+                                
+                                Button(action : {
+                                    selectedInterval = 30
+                                    
+                                    withAnimation {
+                                        if btn30_selected == false {
+                                            btn30_selected.toggle()
+                                            
+                                            btn1_selected = false
+                                            btn3_selected = false
+                                            btn5_selected = false
+                                            btn10_selected = false
+                                            btn60_selected = false
+                                        }
+                                    }
+                                }, label : {
+                                    Text(LocalizedStringKey(Text_30m))
+                                        .font(.system(size: 30))
+                                        .scaleEffect(btn30_selected ? 1.5 : 1.0)
+                                        .foregroundColor(colorScheme == .dark ? .white : .black)
+                                })
+                                
+                                Button(action : {
+                                    selectedInterval = 60
+                                    
+                                    withAnimation {
+                                        if btn60_selected == false {
+                                            btn60_selected.toggle()
+                                            
+                                            btn1_selected = false
+                                            btn3_selected = false
+                                            btn5_selected = false
+                                            btn10_selected = false
+                                            btn30_selected = false
+                                        }
+                                    }
+                                }, label : {
+                                    Text(LocalizedStringKey(Text_60m))
+                                        .font(.system(size: 30))
+                                        .scaleEffect(btn60_selected ? 1.5 : 1.0)
+                                        .foregroundColor(colorScheme == .dark ? .white : .black)
+                                })
+                                .offset(x:25,y:0)
+                            }
                         }
+                        .transition(AnyTransition.scale.animation(.easeInOut))
                     }
-                    .opacity(isUpdatingTime ? 0.0 : 1.0)
+                }
+
+                if isUpdatingTime {
+                    Text("Remaining Time: \(remainingTime) minutes")
+                        .font(.title2)
+                        .foregroundColor(.gray)
                 }
 
                 Spacer()
+            
                 Spacer()
                 
                 .onAppear {
@@ -461,6 +582,8 @@ struct ContentView: View {
                     }
                 }
             }
+            
+            
             
         }
         .onChange(of: selectedLanguage) { newValue in
