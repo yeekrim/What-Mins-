@@ -15,6 +15,7 @@ struct ContentView: View {
     @State private var selectedLanguage: String = UserDefaults.standard.string(forKey: "selectedLanguage") ?? "en-US"
     @State private var targetTimeWorkItem: DispatchWorkItem?
     @StateObject private var speechSynthesizer = SpeechSynthesizer()
+    @Environment(\.colorScheme) var colorScheme
     
     @AppStorage("sectionText") var sectionText: String = UserDefaults.standard.string(forKey: "sectionText") ?? "Country Language Settings"
     @AppStorage("LangText") var LangText: String = UserDefaults.standard.string(forKey: "LangText") ?? "Language"
@@ -299,10 +300,10 @@ struct ContentView: View {
                     .padding(.vertical, -5.0)
                     .overlay(
                         RoundedRectangle(cornerRadius: 7)
-                            .stroke(Color.black, lineWidth: 2)
+                            .stroke(colorScheme == .dark ? Color.white : Color.black, lineWidth: 2)
                     )
                     .imageScale(.large)
-                    .foregroundColor(.black)
+                    .foregroundColor(colorScheme == .dark ? .white : .black)
                     .padding(.top, 20)
                 }
             }
@@ -345,8 +346,9 @@ struct ContentView: View {
                             }
                         }, label: {
                             Image(systemName: "arrowtriangle.backward")
-                                .foregroundColor(.black)
+                                .foregroundColor(colorScheme == .dark ? .white : .black)
                                 .font(.title2)
+                                
                         })
                     }
                     
@@ -374,7 +376,7 @@ struct ContentView: View {
                             selectedInterval += 1
                         }, label: {
                             Image(systemName: "arrowtriangle.forward")
-                                .foregroundColor(.black)
+                                .foregroundColor(colorScheme == .dark ? .white : .black)
                                 .font(.title2)
                         })
                     }
@@ -393,7 +395,7 @@ struct ContentView: View {
                             }, label: {
                                 Text(LocalizedStringKey(Text_1m))
                                     .font(.system(size: 30))
-                                    .foregroundColor(.black)
+                                    .foregroundColor(colorScheme == .dark ? .white : .black)
                             })
                             .offset(x:-40,y:0)
                             
@@ -402,7 +404,7 @@ struct ContentView: View {
                             }, label : {
                                 Text(LocalizedStringKey(Text_3m))
                                     .font(.system(size: 30))
-                                    .foregroundColor(.black)
+                                    .foregroundColor(colorScheme == .dark ? .white : .black)
                             })
                             .offset(x:0,y:0)
                             
@@ -411,7 +413,7 @@ struct ContentView: View {
                             }, label : {
                                 Text(LocalizedStringKey(Text_5m))
                                     .font(.system(size: 30))
-                                    .foregroundColor(.black)
+                                    .foregroundColor(colorScheme == .dark ? .white : .black)
                             })
                             .offset(x:40,y:0)
                         }
@@ -425,7 +427,7 @@ struct ContentView: View {
                             }, label : {
                                 Text(LocalizedStringKey(Text_10m))
                                     .font(.system(size: 30))
-                                    .foregroundColor(.black)
+                                    .foregroundColor(colorScheme == .dark ? .white : .black)
                                 
                             })
                             .offset(x:-23,y:0)
@@ -435,7 +437,7 @@ struct ContentView: View {
                             }, label : {
                                 Text(LocalizedStringKey(Text_30m))
                                     .font(.system(size: 30))
-                                    .foregroundColor(.black)
+                                    .foregroundColor(colorScheme == .dark ? .white : .black)
                             })
                             
                             Button(action : {
@@ -443,7 +445,7 @@ struct ContentView: View {
                             }, label : {
                                 Text(LocalizedStringKey(Text_60m))
                                     .font(.system(size: 30))
-                                    .foregroundColor(.black)
+                                    .foregroundColor(colorScheme == .dark ? .white : .black)
                             })
                             .offset(x:25,y:0)
                         }
