@@ -145,7 +145,7 @@ struct ContentView: View {
                                 Text_60m = "60m "
                                 UserDefaults.standard.set(selectedLanguage, forKey: "selectedLanguage")
                             }) {
-                                if selectedLanguage.hasPrefix("es-ES") {
+                                if selectedLanguage.hasPrefix("es_") {
                                     Label("Espagnol", systemImage: "checkmark")
                                 } else {
                                     Label("Espagnol", systemImage: selectedLanguage == "es-ES" || isFirstPlace == "es_ES" ? "checkmark" : "")
@@ -199,7 +199,7 @@ struct ContentView: View {
                                 Text_60m = "60分 "
                                 UserDefaults.standard.set(selectedLanguage, forKey: "selectedLanguage")
                             }) {
-                                if selectedLanguage.hasPrefix("ja-") {
+                                if selectedLanguage.hasPrefix("ja_") {
                                     Label("日本語", systemImage: "checkmark")
                                 } else {
                                     Label("日本語", systemImage: (selectedLanguage == "ja-JP" || isFirstPlace == "ja_JP") ? "checkmark" : "")
@@ -226,7 +226,7 @@ struct ContentView: View {
                                 Text_60m = "60m "
                                 UserDefaults.standard.set(selectedLanguage, forKey: "selectedLanguage")
                             }) {
-                                if selectedLanguage.hasPrefix("de-") {
+                                if selectedLanguage.hasPrefix("de_") {
                                     Label("Deutsch", systemImage: "checkmark")
                                 } else {
                                     Label("Deutsch", systemImage: (selectedLanguage == "de-DE" || isFirstPlace == "de_DE") ? "checkmark" : "")
@@ -253,7 +253,7 @@ struct ContentView: View {
                                 Text_60m = "60m "
                                 UserDefaults.standard.set(selectedLanguage, forKey: "selectedLanguage")
                             }) {
-                                if selectedLanguage.hasPrefix("fr-") {
+                                if selectedLanguage.hasPrefix("fr_") {
                                     Label("Français", systemImage: "checkmark")
                                 } else {
                                     Label("Français", systemImage: (selectedLanguage == "fr-FR" || isFirstPlace == "fr_FR") ? "checkmark" : "")
@@ -280,7 +280,7 @@ struct ContentView: View {
                                 Text_60m = "60m "
                                 UserDefaults.standard.set(selectedLanguage, forKey: "selectedLanguage")
                             }) {
-                                if selectedLanguage.hasPrefix("it-") {
+                                if selectedLanguage.hasPrefix("it_") {
                                     Label("Lingua italiana", systemImage: "checkmark")
                                 } else {
                                     Label("Lingua italiana", systemImage: (selectedLanguage == "it-IT" || isFirstPlace == "it_IT") ? "checkmark" : "")
@@ -456,13 +456,11 @@ struct ContentView: View {
                 
                 .onAppear {
                     updateTime()
-                    print("\(String(describing: Locale.current.identifier))")
-                    
                     if isFirstLaunch == false {
                         print("first coming! : your place is \(Locale.current.identifier)")
                         selectedLanguage = Locale.current.identifier
                         isFirstPlace = selectedLanguage
-                    } else { print(" Hi, old User.")}
+                    } else { print(" Hi, old User! : your place is \(Locale.current.identifier)")}
                 }
             }
             
