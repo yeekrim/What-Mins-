@@ -322,11 +322,17 @@ struct ContentView: View {
             
             // Time & Control
             Group {
-                Text(LocalizedStringKey(ActText))
-                    .font(.title2)
-                    .bold()
-                    .italic()
                 
+                if isUpdatingTime {
+                    withAnimation(.easeInOut(duration: 0.3)) {
+                        Text(LocalizedStringKey(ActText))
+                            .font(.title2)
+                            .bold()
+                            .italic()
+                            .transition(.scale)
+                    }
+                }
+            
                 Text(currentTime)
                     .font(.system(size: 50))
                     .fontWeight(.light)
@@ -369,26 +375,24 @@ struct ContentView: View {
                             Image(systemName: "arrowtriangle.backward")
                                 .foregroundColor(colorScheme == .dark ? .white : .black)
                                 .font(.title2)
+                                .transition(.scale)
                                 
                         })
                     }
                     
                     Button(action: {
-                        if isUpdatingTime {
-                            stopUpdatingTime()
-                        } else {
-                            startUpdatingTime()
+                        withAnimation(.easeInOut(duration: 0.3)){
+                            if isUpdatingTime {
+                                stopUpdatingTime()
+                            } else {
+                                startUpdatingTime()
+                            }
                         }
                     }) {
-                        if isUpdatingTime {
-                            Text(LocalizedStringKey(StopText))
-                                .bold()
-                                .font(.largeTitle)
-                        } else {
-                            Text(LocalizedStringKey(StartText))
-                                .bold()
-                                .font(.largeTitle)
-                        }
+                        Text(isUpdatingTime ? LocalizedStringKey(StopText) : LocalizedStringKey(StartText))
+                            .bold()
+                            .font(.largeTitle)
+                            .scaleEffect(isUpdatingTime ? 2 : 1)
                     }
                     .foregroundColor(isUpdatingTime ? .red : .green)
                     
@@ -409,6 +413,7 @@ struct ContentView: View {
                             Image(systemName: "arrowtriangle.forward")
                                 .foregroundColor(colorScheme == .dark ? .white : .black)
                                 .font(.title2)
+                                .transition(.scale)
                         })
                     }
                     
@@ -563,12 +568,6 @@ struct ContentView: View {
                         }
                         .transition(AnyTransition.scale.animation(.easeInOut))
                     }
-                }
-
-                if isUpdatingTime {
-                    Text("Remaining Time: \(remainingTime) minutes")
-                        .font(.title2)
-                        .foregroundColor(.gray)
                 }
 
                 Spacer()
