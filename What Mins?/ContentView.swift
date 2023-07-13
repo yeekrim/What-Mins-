@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFAudio
 
 struct ContentView: View {
     
@@ -54,7 +55,7 @@ struct ContentView: View {
                         Color.pink.opacity(0.5),
                         lineWidth: 30
                     )
-                    .frame(width:350, height:350)
+                    .frame(width:335, height:335)
                 Circle()
                     .trim(from: 0, to: progress)
                     .stroke(
@@ -66,10 +67,9 @@ struct ContentView: View {
                     )
                     .rotationEffect(.degrees(-90))
                     .animation(.easeOut, value: progress)
-                    .frame(width:350, height:350)
+                    .frame(width:335, height:335)
             }
-            VStack{                
-
+            VStack{
                 // Language Swap
                 Group {
                     HStack {
@@ -424,7 +424,7 @@ struct ContentView: View {
                                               || selectedLanguage.hasPrefix("ja_")
                                               || selectedLanguage.hasPrefix("es_")
                                               || selectedLanguage.hasPrefix("fr_")
-                                              || selectedLanguage.hasPrefix("it_")) ? 2 : 1)
+                                              || selectedLanguage.hasPrefix("it_")) ? 1.5 : 1.0)
                         }
                         .foregroundColor(isUpdatingTime ? .red : .green)
                         
@@ -607,6 +607,7 @@ struct ContentView: View {
                     Spacer()
                     
                     .onAppear {
+                        
                         updateTime()
                         if isFirstLaunch == false {
                             selectedLanguage = Locale.current.identifier
@@ -619,7 +620,17 @@ struct ContentView: View {
             }
             .onChange(of: selectedLanguage) { newValue in
                 print("Selected Language: \(newValue)")
-        }
+            }
+            .onAppear {
+                do {
+                    let audioSession = AVAudioSession.sharedInstance()
+                    try audioSession.setCategory(.playback, mode: .default, options: [.duckOthers, .mixWithOthers])
+                    try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
+                    print("Active")
+                } catch {
+                    print("Error setting audio session category: \(error)")
+                }
+            }
         }
     }
 
@@ -627,7 +638,7 @@ struct ContentView: View {
     func updateTime() {
         let formatter = DateFormatter()
         formatter.timeStyle = .medium
-        formatter.locale = Locale(identifier: "en-US")
+        formatter.locale = Locale(identifier: "ja-JP")
         currentTime = formatter.string(from: Date())
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -686,13 +697,18 @@ struct ContentView: View {
 
     // 무음모드 여부를 판단하여 소리 or 진동 출력
     func speakCurrentTime() {
+        
         let formatter = DateFormatter()
         formatter.timeStyle = .short
         
         let timeString = formatter.string(from: Date())
+        
         DetectMuteMode { muteMode in
             if muteMode {
-                speechSynthesizer.vibrate()
+                
+                AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+                
+                speechSynthesizer.speak(timeString)
                 } else {
                 speechSynthesizer.speak(timeString)
             }
